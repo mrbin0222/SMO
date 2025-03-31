@@ -136,15 +136,45 @@ masks = generator.generate("demo.png")
 ### 🌐 Multimodal Prompter Module (comming soon)
 Any text-image alignment model can be used, such as CLIP (Contrastive Language-Image Pre-Training), etc.
 
-```python
-import clip
+Install CLIP:
 
-def init_clip(model_name: str = "ViT-B/32"):
-    """Initialize CLIP model"""
-    model, preprocess = clip.load(model_name)
-    return model, preprocess
-...
-# Alternative models: ALIGN, Florence, OpenCLIP
+```
+conda install --yes -c pytorch pytorch=1.7.1 torchvision cudatoolkit=11.0
+pip install ftfy regex tqdm
+pip install git+https://github.com/openai/CLIP.git
+```
+#### Model Checkpoints
+
+Four official model versions of the model are available with different backbone sizes.
+
+Click the links below to download the checkpoint for the corresponding model type.
+
+- `ViT-B/16`: [openai/clip-vit-base-patch16.](https://huggingface.co/openai/clip-vit-base-patch16)
+- `ViT-B/32`: [openai/clip-vit-base-patch32.](https://huggingface.co/openai/clip-vit-base-patch32)
+- `ViT-L/14`: [openai/clip-vit-large-patch14.](https://huggingface.co/openai/clip-vit-large-patch14)
+- `ViT-L/14@336px`: [openai/clip-vit-large-patch14-336.](https://huggingface.co/openai/clip-vit-large-patch14-336)
+
+#### Getting Start with CLIP
+
+```python
+import torch
+import clip
+from PIL import Image
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model, preprocess = clip.load("ViT-B/32", device=device)
+
+image = preprocess(Image.open("CLIP.png")).unsqueeze(0).to(device)
+text = clip.tokenize(["a diagram", "a dog", "a cat"]).to(device)
+
+with torch.no_grad():
+    image_features = model.encode_image(image)
+    text_features = model.encode_text(text)
+    
+    logits_per_image, logits_per_text = model(image, text)
+    probs = logits_per_image.softmax(dim=-1).cpu().numpy()
+
+print("Label probs:", probs)  # prints: [[0.9927937  0.00421068 0.00299572]]
 ```
 
 ## 🚀 Demos
