@@ -1,0 +1,89 @@
+# below are the explanations for these parameters:
+# cell phenotype:
+# 1. **selblock_orientation**：the orientation of the selected block, usually used to define the rotation angle of the cell.
+# 2. **cell_size**：the size of the cell, usually represented as the length of the long axis of the cell.
+# 3. **cell_eccentricity**：the eccentricity of the cell, defining the shape of the cell, the closer to 1, the closer to an ellipse, the closer to 0, the closer to a circle.
+# 4. **morph_dev**：the morphological deviation, used to introduce random variations in cell morphology.
+# 5. **rat_nuc_cell**：the ratio of the nucleus to the cell size, defining the size of the nucleus relative to the cell.
+# 6. **polarity**：the polarity of the cell, affecting the position of the nucleus within the cell.
+# these parameters are used to simulate the morphology and behavior of cells, so that they can be analyzed or predicted in a specific environment.
+# example parameters
+# Stromal cells, Tumor cells, Stromal-Immune, Lumen, Stromal fibers
+Selblock_Orientation: [-1, 1]
+PhenoSize: [10, 16, 13, 2, 2]
+PhenoEccentricity: [0.5, 0.7, 0.4, 1.0, 1.0]
+PhenoMorphDeviation: [0.3, 0.1, 0.3, 0, 0]
+RatioNucleousCellSize: [0.6, 0.9, 0.7, 1.0, 1.0]
+PhenoPolarity: [0.1, 0.2, 0.3, 0, 0]
+# if -1, it means random
+# the index value cannot exceed the length of CPname
+Pheno_winner: 2
+CPname : ['Stromal Cells', 'Tumor Cells', 'Stromal-Immune', 'Lumen', 'Stromal Fibers']
+
+# image scaling and saving parameters
+expandsize: 224
+dpi: 72
+basefolder: 'synpleximage/'
+ip: '127.0.0.1:8080'
+
+# cell tissue texture and structure features, parameters are used to simulate and analyze various factors in cell imaging
+# Marker_Names = ['DAPI', 'CK', 'T cell']
+# DAPI: usually used to stain cell nuclei.
+# CK (cell keratin): often used to mark cell cytoplasm.
+# T cell: often used to mark T cells.
+# M = marker_expression.shape
+# the dimension is [5,3], indicating there are 5 phenotypes and 3 markers.
+M : [5,3]
+# nuclear or cytoplasmic markers
+# specify the localization of each marker: nucleus, CK (cell keratin), cytoplasm.
+marker_localization : ["Nuclear","CK","Cytoplasmatic"]
+# Marker expression, Rows: phenotypes. Columns: Markers
+# Ph1 expressing Mk1, Ph2 expressing Mk1, Ph2 expressing Mk2, Ph3 expressing Mk1, Ph3 expressing Mk3
+# the expression relationship between phenotypes and markers:
+# Ph1: expresses Mk1 (DAPI).
+# Ph2: expresses Mk1 and Mk2 (DAPI and CK).
+# Ph3: expresses Mk1 and Mk3 (DAPI and T cell).
+marker_expression : 
+  array_param:
+    - [0.7, 0.0, 0.0]
+    - [0.7, 0.6, 0.0]
+    - [0.7, 0.0, 0.7]
+    - [0.0, 0.0, 0.0]
+    - [0.0, 0.0, 0.0]
+# Persistence of background noise, Initial freq., and final freq.
+# persistence of background noise, initial frequency, and final frequency.
+backgroundperlinnoise : [0.01,2,10]
+# PerlinTexture
+# persistence of Perlin texture, affecting the smoothness of the texture.
+perlinpresistence : [0.05,0.03,0.03]
+# Initial freq., Final freq.
+# Mk1, Mk2, Mk3
+# initial frequency and final frequency, affecting the detail level of the texture.
+perlinfreq : 
+  array_param:
+    - [1, 5]
+    - [3, 6]
+    - [2, 6]
+# PerlinTexture_Sparse
+# Mk1, Mk2, Mk3
+perlinpresistence_sparse : [0.01,0,0]
+# Initial freq., Final freq.
+# Mk1, Mk2, Mk3
+perlinfreq_sparse : 
+  array_param:
+    - [1, 3]
+    - [1, 3]
+    - [1, 3]
+# PSF simulation of a microscope
+# NA = 0.45; Wavelength = [300,461,534];
+# gaussfiltimage = [(1/NA)*(Wavelength(0)/1000),(1/NA)*(Wavelength(1)/1000),(1/NA)*(Wavelength(2)/1000)]
+# based on the numerical aperture (NA) and wavelength, the Gaussian filter parameters are calculated to simulate the resolution of a microscope.
+gaussfiltimage : [0.6667,1.0244,1.1867]
+# Signal to noise ratio
+# SNR of each marker, representing the clarity of the signal.
+SNR : [45.0,35.0,45.0]
+# Simulation of leakage between markers
+# simulation of signal leakage between markers, affecting the accuracy of the image.
+gaussFiltLeakage_Left : [0.4,0.0,0.0]
+gaussFiltLeakage_Right : [0.0,0.2,0.2]
+
