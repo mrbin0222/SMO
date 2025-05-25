@@ -28,15 +28,14 @@ Community Feedback: We highly value community feedback and encourage users and d
 | Timeline       | Milestone                     |
 |----------------|-------------------------------|
 | Apr 2025       | Dataset Disclosure|
-| May 2025       | Operating Environment Disclosure         |
-| Aug 2025       | Function Code Open Source|
-| Sep 2025       | Demo Release  |
+| May 2025       | Function Code Open Source|
+| May 2025       | Demo Release  |
 
 ### 📋 Todo List
-- [ ] Dataset Disclosure
-- [ ] Operating Environment Disclosure
-- [ ] Function Code Open Source
-- [ ] Demo Release
+- [x] Dataset Disclosure
+- [x] Function Code Open Source
+- [x] Demo Release Part 1
+- [ ] Demo Release Part 2
 
 ## 📁 Datasets
 we employed four publicly accessible datasets and one private dataset.
