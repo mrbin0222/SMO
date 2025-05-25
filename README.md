@@ -8,22 +8,6 @@ Bin Shen, Zhen Gu, Jiale Zhou, Bingyong Yan, Yiquan Fang, Huifeng Wang
 
 ## 📌 Code Disclosure Plan
 
-### Objective
-The code disclosure plan for this project aims to promote the sharing and exchange of technology, and to encourage more developers to participate in the development and refinement of the project. We believe that through open-source, we can accelerate the maturity of the project, improve code quality, and spark innovative solutions.
-
-### Scope of Disclosure
-
-Source Code: All source code of the project will be fully disclosed, including core functional modules, utility classes, sample code, etc.
-
-Documentation: Detailed development documentation, user manuals, and API documentation are provided to help users and developers better understand and use this project.
-
-### Disclosure Strategy
-Initial Review: Before the code is disclosed, we will conduct an internal code review to ensure that the code meets quality standards and does not contain sensitive information.
-
-Continuous Updates: The project will be continuously maintained and updated, with all updates being publicly available through GitHub.
-
-Community Feedback: We highly value community feedback and encourage users and developers to submit questions, suggestions, and improvement proposals.
-
 ### 🗓 Timeline
 | Timeline       | Milestone                     |
 |----------------|-------------------------------|
@@ -52,139 +36,26 @@ we employed four publicly accessible datasets and one private dataset.
 H1299 and HeLa cells, both derived from human tissues, were cultured at densities varying between 20% and 80%. Imaging was performed with an Olympus LUCPLFLN 20X objective, capturing three channels (BF, CFP and GFP) at 30-minute intervals across a duration of 27 hours. The ground truth of this dataset has not yet been fully annotated.
 
 
-## 🛠 Installation
-
-### 📦 Requirements (comming soon)
-```bash
-# requirements.txt
-torch>=1.7.0
-torchvision>=0.8.0
-...
-```
-
-
-### ⚙️ Conda Environment (comming soon)
-```bash
-conda create -n smo python=3.8 -y
-conda activate smo
-conda install pytorch torchvision cudatoolkit=11.3 -c pytorch
-pip install -r requirements.txt
-...
-```
-
 ## 🧩 Core Modules
 
-### 🎯 Segmentation Fundamental Module (comming soon)
-Any segmentation model can be used, such as SAM (Segment Anything Model), etc.
-
-Install Segment Anything:
-
-```
-pip install git+https://github.com/facebookresearch/segment-anything.git
-```
-
-or clone the repository locally and install with
-
-```
-git clone git@github.com:facebookresearch/segment-anything.git
-cd segment-anything; pip install -e .
-```
-
-#### Model Checkpoints
-
-Three model versions of the model are available with different backbone sizes. These models can be instantiated by running
-
-```
-from segment_anything import sam_model_registry
-sam = sam_model_registry["<model_type>"](checkpoint="<path/to/checkpoint>")
-```
-
-Click the links below to download the checkpoint for the corresponding model type.
-
-- **`default` or `vit_h`: [ViT-H SAM model.](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth)**
-- `vit_l`: [ViT-L SAM model.](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_l_0b3195.pth)
-- `vit_b`: [ViT-B SAM model.](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth)
-
-#### Getting Start with SAM
-
-```python
-# get masks from a given prompt
-from segment_anything import SamPredictor
-
-def init_sam(model_type: str = "vit_h"):
-    """Initialize SAM model"""
-    predictor = SamPredictor(build_sam(checkpoint="sam_vit_h_4b8939.pth"))
-    return predictor
-
-predictor = init_sam()
-predictor.set_image("demo.png")
-masks, _, _ = predictor.predict(<input_prompts>)
-
-# or generate masks for an entire image:
-from segment_anything import SamAutomaticMaskGenerator
-
-def init_sam(model_type: str = "vit_h"):
-    """Initialize SAM model"""
-    generator = SamAutomaticMaskGenerator(build_sam(checkpoint="sam_vit_h_4b8939.pth"))
-    return generator
-
-generator = init_sam()
-masks = generator.generate("demo.png")
-```
-
-### 🌐 Multimodal Prompter Module (comming soon)
-Any text-image alignment model can be used, such as CLIP (Contrastive Language-Image Pre-Training), etc.
-
-Install CLIP:
-
-```
-conda install --yes -c pytorch pytorch=1.7.1 torchvision cudatoolkit=11.0
-pip install ftfy regex tqdm
-pip install git+https://github.com/openai/CLIP.git
-```
-#### Model Checkpoints
-
-Four official model versions of the model are available with different backbone sizes.
-
-Click the links below to download the checkpoint for the corresponding model type.
-
-- `ViT-B/16`: [openai/clip-vit-base-patch16.](https://huggingface.co/openai/clip-vit-base-patch16)
-- `ViT-B/32`: [openai/clip-vit-base-patch32.](https://huggingface.co/openai/clip-vit-base-patch32)
-- `ViT-L/14`: [openai/clip-vit-large-patch14.](https://huggingface.co/openai/clip-vit-large-patch14)
-- `ViT-L/14@336px`: [openai/clip-vit-large-patch14-336.](https://huggingface.co/openai/clip-vit-large-patch14-336)
-
-#### Getting Start with CLIP
-
-```python
-import torch
-import clip
-from PIL import Image
-
-device = "cuda" if torch.cuda.is_available() else "cpu"
-model, preprocess = clip.load("ViT-B/32", device=device)
-
-image = preprocess(Image.open("CLIP.png")).unsqueeze(0).to(device)
-text = clip.tokenize(["a diagram", "a dog", "a cat"]).to(device)
-
-with torch.no_grad():
-    image_features = model.encode_image(image)
-    text_features = model.encode_text(text)
-    
-    logits_per_image, logits_per_text = model(image, text)
-    probs = logits_per_image.softmax(dim=-1).cpu().numpy()
-
-print("Label probs:", probs)  # prints: [[0.9927937  0.00421068 0.00299572]]
-```
+- Cell Segmentation Based on Text Prompts (comming soon)
+- Nucleus Segmentation Based on Layout Prompts and Text Prompts (completed)
+- Cell Division Event Recognition Based on Feature Point Prompts and Text Prompts
+- Synthetic Data Generation and Multimodal Prompter Module Fine-Tuning (completed)
 
 ## 🚀 Demos
 
-### 🔍 Cell Segmentation Example (comming soon)
-```python
+### Nucleus Segmentation Based on Layout Prompts and Text Prompts
 
-```
+[See README_layoutandtext](layoutandtext/README_layoutandtext.md)
 
+### Synthetic Data Generation and Multimodal Prompter Module Fine-Tuning
+
+[See README_datasets](datasets/README_datasets.md)
+[See README_dataprocess](dataprocess/README_dataprocess.md)
 
 ## 📜 License
+
 Apache 2.0 License
 
 ## Citing SMO (Under Review)
@@ -195,14 +66,4 @@ If you use SMO in your research, please cite our paper:
 
 
 **BibTeX**  
-
-
-
-Please also consider citing the foundational works that our project builds upon:
-- Segment Anything Model (SAM) [[Paper](https://arxiv.org/abs/2304.02643)]
-- CLIP [[Paper](https://arxiv.org/abs/2103.00020)]
-
-
-
-
 
