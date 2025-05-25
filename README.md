@@ -9,6 +9,7 @@ Bin Shen, Zhen Gu, Jiale Zhou, Bingyong Yan, Yiquan Fang, Huifeng Wang
 ## 📌 Code Disclosure Plan
 
 ### 🗓 Timeline
+
 | Timeline       | Milestone                     |
 |----------------|-------------------------------|
 | Apr 2025       | Dataset Disclosure|
@@ -16,14 +17,20 @@ Bin Shen, Zhen Gu, Jiale Zhou, Bingyong Yan, Yiquan Fang, Huifeng Wang
 | May 2025       | Demo Release  |
 
 ### 📋 Todo List
+
 - [x] Dataset Disclosure
 - [x] Function Code Open Source
 - [x] Demo Release Part 1
 - [ ] Demo Release Part 2
 
 ## 📁 Datasets
+
 we employed four publicly accessible datasets and one private dataset.
+
+See [README_datasets](datasets/README_datasets.md)
+
 ### 🔬 Publicly Accessible Datasets
+
 | Dataset                  | Description                                                                 |
 |--------------------------|-----------------------------------------------------------------------------|
 | LIVECell                 | A substantial and high-quality cell dataset including a diverse range of cell morphologies. This dataset consists of 5,239 microscope images and a total of 1,686,352 labeled cells, which were manually annotated and verified by experts.        |
@@ -40,19 +47,28 @@ H1299 and HeLa cells, both derived from human tissues, were cultured at densitie
 
 - Cell Segmentation Based on Text Prompts (comming soon)
 - Nucleus Segmentation Based on Layout Prompts and Text Prompts (completed)
-- Cell Division Event Recognition Based on Feature Point Prompts and Text Prompts
+- Cell Division Event Recognition Based on Feature Point Prompts and Text Prompts (comming soon)
 - Synthetic Data Generation and Multimodal Prompter Module Fine-Tuning (completed)
 
 ## 🚀 Demos
 
+### Cell Segmentation Based on Text Prompts
+
+Comming Soon
+
 ### Nucleus Segmentation Based on Layout Prompts and Text Prompts
 
-[See README_layoutandtext](layoutandtext/README_layoutandtext.md)
+See [README_layoutandtext](layoutandtext/README_layoutandtext.md)
 
 ### Synthetic Data Generation and Multimodal Prompter Module Fine-Tuning
 
-[See README_datasets](datasets/README_datasets.md)
-[See README_dataprocess](dataprocess/README_dataprocess.md)
+See [README_datasets](datasets/README_datasets.md)
+
+See [README_dataprocess](dataprocess/README_dataprocess.md)
+
+### Cell Division Event Recognition Based on Feature Point Prompts and Text Prompts
+
+Comming Soon
 
 ## 📜 License
 
