@@ -67,7 +67,7 @@ See [README_dataprocess](dataprocess/README_dataprocess.md)
 
 ### Cell Division Event Recognition Based on Feature Point Prompts and Text Prompts
 
-Comming Soon
+See [README_featureandtext](layoutandtext/README_featureandtext.md)
 
 ## 📜 License
 
