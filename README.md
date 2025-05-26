@@ -20,7 +20,7 @@ Bin Shen, Zhen Gu, Jiale Zhou, Bingyong Yan, Yiquan Fang, Huifeng Wang
 
 - [x] Dataset Disclosure
 - [x] Function Code Open Source
-- [x] Demo Release Part
+- [x] Demo Release
 
 ## 📁 Datasets
 
@@ -32,7 +32,7 @@ See [README_datasets](datasets/README_datasets.md)
 
 - Cell Segmentation Based on Text Prompts
 - Nucleus Segmentation Based on Layout Prompts and Text Prompts
-- Cell Division Event Recognition Based on Feature Point Prompts and Text Prompts (comming soon)
+- Cell Division Event Recognition Based on Feature Point Prompts and Text Prompts
 - Synthetic Data Generation and Multimodal Prompter Module Fine-Tuning
 
 ## 🚀 Demos
@@ -62,9 +62,3 @@ Apache 2.0 License
 ## Citing SMO (Under Review)
 
 If you use SMO in your research, please cite our paper:
-
-**APA Style**  
-
-
-**BibTeX**  
-
