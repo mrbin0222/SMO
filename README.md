@@ -20,8 +20,7 @@ Bin Shen, Zhen Gu, Jiale Zhou, Bingyong Yan, Yiquan Fang, Huifeng Wang
 
 - [x] Dataset Disclosure
 - [x] Function Code Open Source
-- [x] Demo Release Part 1
-- [ ] Demo Release Part 2
+- [x] Demo Release Part
 
 ## 📁 Datasets
 
@@ -45,16 +44,16 @@ H1299 and HeLa cells, both derived from human tissues, were cultured at densitie
 
 ## 🧩 Core Modules
 
-- Cell Segmentation Based on Text Prompts (comming soon)
-- Nucleus Segmentation Based on Layout Prompts and Text Prompts (completed)
+- Cell Segmentation Based on Text Prompts
+- Nucleus Segmentation Based on Layout Prompts and Text Prompts
 - Cell Division Event Recognition Based on Feature Point Prompts and Text Prompts (comming soon)
-- Synthetic Data Generation and Multimodal Prompter Module Fine-Tuning (completed)
+- Synthetic Data Generation and Multimodal Prompter Module Fine-Tuning
 
 ## 🚀 Demos
 
 ### Cell Segmentation Based on Text Prompts
 
-Comming Soon
+See [README_textprompts](layoutandtext/README_textprompts.md)
 
 ### Nucleus Segmentation Based on Layout Prompts and Text Prompts
 
