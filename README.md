@@ -28,20 +28,6 @@ we employed four publicly accessible datasets and one private dataset.
 
 See [README_datasets](datasets/README_datasets.md)
 
-### 🔬 Publicly Accessible Datasets
-
-| Dataset                  | Description                                                                 |
-|--------------------------|-----------------------------------------------------------------------------|
-| LIVECell                 | A substantial and high-quality cell dataset including a diverse range of cell morphologies. This dataset consists of 5,239 microscope images and a total of 1,686,352 labeled cells, which were manually annotated and verified by experts.        |
-| Cell Tracking Challenge  | A classical cell/nucleus dataset. Seven categories in the Cell Tracking Challenge dataset were utilized: DIC-C2DH-HeLa, Fluo-N2DL-HeLa, Fluo-N2DH-GOWT1, Fluo-N3DH-CHO, Fluo-N2DH-SIM, PhC-C2DH-U373, and PhC-C2DL-PSC. |
-| MoNuSeg                  | A nucleus dataset comprising 30 images for training, annotated with 21,623 cellular instances, along with 14 images designated for testing, featuring 6,697 cell annotations. Each image within this dataset was captured from H&E-stained tissue specimens at 40x optical magnification. |
-| TNBC                     | A nucleus dataset containing H&E-stained pathology images of 11 triple-negative breast cancer (TNBC) patients, with 40x magnification. Among the 50 images, 4022 nuclei were labeled. |
-
-### 🔬 Private Dataset
-
-H1299 and HeLa cells, both derived from human tissues, were cultured at densities varying between 20% and 80%. Imaging was performed with an Olympus LUCPLFLN 20X objective, capturing three channels (BF, CFP and GFP) at 30-minute intervals across a duration of 27 hours. The ground truth of this dataset has not yet been fully annotated.
-
-
 ## 🧩 Core Modules
 
 - Cell Segmentation Based on Text Prompts
