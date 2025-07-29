@@ -1,4 +1,4 @@
-# SMO
+# A Deep Learning Multimodal Fusion-Based Method for Cell and Nucleus Segmentation
 
 Bin Shen, Zhen Gu, Jiale Zhou, Bingyong Yan, Yiquan Fang, Huifeng Wang
 
