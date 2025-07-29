@@ -1,10 +1,10 @@
 # SMO
 
-**[ECUST](https://www.ecust.edu.cn/)**
-
 Bin Shen, Zhen Gu, Jiale Zhou, Bingyong Yan, Yiquan Fang, Huifeng Wang
 
-[[`Paper`]()] 
+[![IEEE-Xplore](https://img.shields.io/badge/IEEE_Xplore-Paper-<COLOR>.svg)](https://ieeexplore.ieee.org/document/11096725) 
+
+Accepted for publication in [IEEE Transactions on Medical Imaging] (TMI) 2025.
 
 ## 📌 Code Disclosure Plan
 
@@ -59,6 +59,16 @@ See [README_featureandtext](layoutandtext/README_featureandtext.md)
 
 Apache 2.0 License
 
-## Citing SMO (Under Review)
+## Citing SMO
 
 If you use SMO in your research, please cite our paper:
+
+```latex
+@ARTICLE{11096725,
+  author={Shen, Bin and Gu, Zhen and Zhou, Jiale and Yan, Bingyong and Fang, Yiquan and Wang, Huifeng},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={A Deep Learning Multimodal Fusion-Based Method for Cell and Nucleus Segmentation}, 
+  year={2025},
+  keywords={Image segmentation;Computer architecture;Microprocessors;Training;Deep learning;Weak supervision;Visualization;Computational modeling;Transfer learning;Linguistics;Cellular image;deep learning;cell segmentation;nucleus segmentation;multimodal},
+  doi={10.1109/TMI.2025.3592625}}
+```
